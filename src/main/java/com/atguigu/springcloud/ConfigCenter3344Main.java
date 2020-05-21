@@ -12,6 +12,7 @@ public class ConfigCenter3344Main {
 		System.out.println("111111");
 		System.out.println("77777777");
 		System.out.println("999999999");
+		System.out.println("00000000000");
 		SpringApplication.run(ConfigCenter3344Main.class, args);
 	}
 }
