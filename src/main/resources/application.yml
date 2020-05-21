@@ -1,0 +1,41 @@
+server:
+  port: 3344
+spring:
+  application:
+    name: cloud-config-center
+  datasource: 
+        driver-class-name: com.mysql.jdbc.Driver
+        password: root
+        url: jdbc:mysql://localhost:3306/db2019?useUnicode=true&characterEncoding=utf-8&useSSL=false
+        username: root
+  rabbitmq: 
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/xueshan3821/springcloud-config.git  #github上面的git仓库名
+          default-label: master
+          search-paths: 
+            - springcloud-config  #搜素目录
+          skip-ssl-validation: true
+          username: xueshan3821
+          password: Asdf3821
+management:
+  endpoints:
+    web:
+      exposure:
+        exclude:
+          include: "bus-refresh"
+eureka:
+  instance:
+    hostname: config-3344.com
+    prefer-ip-address: true
+  client:
+    register-with-eureka: false 
+    fetch-registry: false
+    service-url: 
+      defaultZone: http://eureka7001.com:7001      
